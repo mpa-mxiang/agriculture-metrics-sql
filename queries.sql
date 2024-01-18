@@ -38,6 +38,19 @@ ON country_code = area_code
 WHERE area IN ('Northern America', 'Central America', 'South America')
 GROUP BY area;
 
+/* For each country in Asia, 
+return the total production of each individual crop in 2010 */
+
+SELECT country_group, 
+COUNT(country),SUM(value)
+FROM country_groups
+LEFT JOIN crop_livestock_stats
+ON country_code=area_code
+WHERE country_group in ( 'Northern America', 'Central America', 'South America')
+AND item = 'Meat, Poultry' 
+AND ELEMENT = 'Production' 
+AND YEAR = 2010
+GROUP BY country_group;
 
 
 
