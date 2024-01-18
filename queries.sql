@@ -17,6 +17,14 @@ AND item = 'Fruits, Primary'
 AND element = 'Production'
 GROUP BY area, item;
 
+/* Filter the data to only countries in 
+Northern America, Central America, South America */
+SELECT 	s.*, 
+	c.country_group 
+FROM crop_livestock_stats s, 
+country_groups c
+WHERE c.country_group IN ('North America', 'South America', 'Central America') 
+LIMIT 1000;
 
 
 
